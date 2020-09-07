@@ -7,6 +7,23 @@ spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://134.175.48.15:3399/yyali_user?characterEncoding=utf8&useSSL=false
+  # 缓存配置
+  redis:
+    # 地址
+    cluster:
+      nodes:
+          - 134.175.48.15:6301
+          - 134.175.48.15:6302
+          - 134.175.48.15:6303
+          - 134.175.48.15:6304
+          - 134.175.48.15:6305
+          - 134.175.48.15:6306
+    timeout: 5000
+    pool:
+       maxActive: 5000 #最大连接数
+       maxIdle: 30 #最大空闲连接数
+       minIdle: 5 #最小空闲连接数
+       maxWait: 3000  #获取连接最大等待时间 ms  #default -1
 
 mybatis:
   type-aliases-package: com.yyali.provider.model.domain
@@ -24,4 +41,3 @@ pagehelper:
   reasonable: true
   supportMethodsArguments: true
   params: count=countSql
-
